@@ -1,3 +1,4 @@
+# sampling
 Discussion
 
 In this assignment, the main objective was to deal with the issue of class imbalance in the credit card dataset. Since the number of
