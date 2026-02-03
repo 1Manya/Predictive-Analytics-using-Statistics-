@@ -1,8 +1,12 @@
-**Aim
+Probability Density Function Parameter Estimation
+Objective
 
-The aim of this experiment is to learn the parameters of a given probability density function for a transformed variable using estimation techniques.
+To estimate the parameters of a given probability density function using the transformed variable obtained from the previous step.
 
-Given Probability Density Function
+Given PDF
+
+The probability density function used in this experiment is:
+
 𝑝
 ^
 (
@@ -34,23 +38,21 @@ where
 𝜆
 λ, and 
 𝑐
-c are unknown parameters to be estimated.
+c are the parameters to be estimated.
 
-Methodology
+Method Used
 
-The transformed data 
+The parameters are estimated using simple statistical estimation techniques. Since the given function has a Gaussian-like form, its parameters can be calculated directly from the data.
+
+The mean of the transformed variable 
 𝑧
-z, obtained from Step-1, is used for parameter estimation. Since the given probability density function has a Gaussian-like form, its parameters can be estimated using basic statistical properties of the data.
-
-First, the mean 
+z is calculated and taken as 
 𝜇
-μ is calculated as the average of all values of 
+μ. The variance of 
 𝑧
-z. This represents the central value of the distribution. Next, the variance of 
-𝑧
-z is computed to measure how the data is spread around the mean.
+z is then computed to find how the values are spread around the mean.
 
-Using the variance, the parameter 
+Using the variance, the value of 
 𝜆
 λ is calculated as:
 
@@ -66,7 +68,7 @@ variance
 	​
 
 
-Finally, the normalization constant 
+After that, the constant 
 𝑐
 c is calculated using:
 
@@ -81,11 +83,18 @@ c=
 
 	​
 
+Result
 
-These estimated values of 
+Using the above method, the values of 
 𝜇
 μ, 
 𝜆
 λ, and 
 𝑐
-c represent the learned parameters of the given probability density function.**
+c were obtained and represent the learned parameters of the given probability density function.
+
+Tools Used
+
+Python
+
+NumPy
