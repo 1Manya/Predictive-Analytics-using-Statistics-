@@ -26,6 +26,7 @@ I built this as part of my assignment which required using Python libraries from
 ### Web Interface
 *(<img width="994" height="1458" alt="image" src="https://github.com/user-attachments/assets/cab09188-5a3c-4da7-970f-2a4577ea645e" />
 )*
+---
 
 ### Email Received with Mashup
 *(<img width="956" height="765" alt="image" src="https://github.com/user-attachments/assets/7cef903c-e245-4c5c-9965-c5dab5ae7cb6" />
@@ -87,7 +88,7 @@ python 102317119.py "Sharry Maan" 20 20 102317119-output.mp3
 ## Program 2 — Flask Web Application
 
 ### Live Demo
-🔗 *(Add your Render deployed link here)*
+🔗 *([Render deployed link here](https://mashup-102317119-2kb9.onrender.com/))*
 
 ### Run locally
 ```bash
@@ -98,23 +99,5 @@ Then open: **http://localhost:5000**
 
 ---
 
-## How to set up Gmail for sending emails
-
-This project uses Gmail to send the mashup file. To run it locally:
-
-1. Enable 2-Step Verification on your Google account
-2. Go to [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
-3. Generate an App Password
-4. Set your credentials:
-
-```bash
-set SENDER_EMAIL=youremail@gmail.com
-set SENDER_PASSWORD=your16charapppassword
-```
-
 ---
-
-## Deployment
-
-This project is deployed on **Render** (free tier).  
-🔗 Live Link: *(Add your link here)*
+ 
