@@ -87,9 +87,9 @@ Enjoy your music!
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
         server.sendmail(SENDER_EMAIL, to_email, msg.as_string())
 
-
 def process_mashup(singer, num_videos, duration, email):
     import time
+    import traceback
     job_id  = str(int(time.time()))
     job_dir = os.path.join("jobs", job_id)
     os.makedirs(job_dir, exist_ok=True)
@@ -98,12 +98,16 @@ def process_mashup(singer, num_videos, duration, email):
     output_zip = os.path.join(job_dir, f"mashup_{job_id}.zip")
 
     try:
+        print(f"[INFO] Starting mashup for {singer}, {num_videos} videos, {duration}s", flush=True)
         run_mashup(singer, num_videos, duration, output_mp3, job_dir)
+        print(f"[INFO] Mashup done, zipping...", flush=True)
         zip_file(output_mp3, output_zip)
+        print(f"[INFO] Sending email to {email}...", flush=True)
         send_email(email, output_zip, singer)
-        print(f"[✓] Mashup sent to {email}")
+        print(f"[DONE] Email sent to {email}", flush=True)
     except Exception as e:
-        print(f"[ERROR] Mashup failed for job {job_id}: {e}")
+        print(f"[ERROR] Job {job_id} failed:", flush=True)
+        print(traceback.format_exc(), flush=True)
 
 
 @app.route("/")
