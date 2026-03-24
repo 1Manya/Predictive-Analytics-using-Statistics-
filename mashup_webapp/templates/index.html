@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mashup Creator</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+
+    .logo { font-size: 2.5rem; text-align: center; margin-bottom: 8px; }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    label {
+      display: block;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+
+    input::placeholder { color: rgba(255,255,255,0.3); }
+
+    input:focus {
+      border-color: #e94560;
+      background: rgba(233,69,96,0.1);
+      box-shadow: 0 0 0 3px rgba(233,69,96,0.2);
+    }
+
+    input.error-field { border-color: #ff6b6b; }
+
+    .hint {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.75rem;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #e94560, #c62a47);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+    }
+
+    button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(233,69,96,0.4);
+    }
+
+    button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .message {
+      margin-top: 20px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .message.success {
+      background: rgba(39,174,96,0.2);
+      border: 1px solid rgba(39,174,96,0.4);
+      color: #a8f5c8;
+      display: block;
+    }
+
+    .message.error-msg {
+      background: rgba(231,76,60,0.2);
+      border: 1px solid rgba(231,76,60,0.4);
+      color: #ffb3b3;
+      display: block;
+    }
+
+    .message ul { padding-left: 18px; margin-top: 6px; }
+    .message ul li { margin-bottom: 4px; }
+
+    .spinner {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .roll { text-align: center; color: rgba(255,255,255,0.2); font-size: 0.75rem; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">🎵</div>
+    <h1>Mashup Creator</h1>
+    <p class="subtitle">Enter details to generate your custom music mashup</p>
+
+    <div class="form-group">
+      <label>Singer Name</label>
+      <input type="text" id="singer" placeholder="e.g. Sharry Maan" />
+    </div>
+
+    <div class="form-group">
+      <label># of Videos</label>
+      <input type="number" id="num_videos" placeholder="e.g. 20" min="11" />
+      <div class="hint">Must be greater than 10</div>
+    </div>
+
+    <div class="form-group">
+      <label>Duration of Each Clip (seconds)</label>
+      <input type="number" id="duration" placeholder="e.g. 30" min="21" />
+      <div class="hint">Must be greater than 20 seconds</div>
+    </div>
+
+    <div class="form-group">
+      <label>Your Email ID</label>
+      <input type="email" id="email" placeholder="e.g. you@gmail.com" />
+      <div class="hint">Your mashup ZIP will be sent here</div>
+    </div>
+
+    <button id="submitBtn" onclick="submitForm()">🎧 Create Mashup</button>
+
+    <div id="message" class="message"></div>
+    <div class="roll">Roll No: 102317119</div>
+  </div>
+
+  <script>
+    async function submitForm() {
+      const btn = document.getElementById('submitBtn');
+      const msgDiv = document.getElementById('message');
+
+      const singer     = document.getElementById('singer').value.trim();
+      const num_videos = document.getElementById('num_videos').value.trim();
+      const duration   = document.getElementById('duration').value.trim();
+      const email      = document.getElementById('email').value.trim();
+
+      // Clear previous state
+      msgDiv.className = 'message';
+      msgDiv.innerHTML = '';
+      ['singer','num_videos','duration','email'].forEach(id => {
+        document.getElementById(id).classList.remove('error-field');
+      });
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Processing...';
+
+      const formData = new FormData();
+      formData.append('singer', singer);
+      formData.append('num_videos', num_videos);
+      formData.append('duration', duration);
+      formData.append('email', email);
+
+      try {
+        const res = await fetch('/submit', { method: 'POST', body: formData });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+          msgDiv.className = 'message success';
+          msgDiv.innerHTML = '✅ ' + data.message;
+        } else {
+          msgDiv.className = 'message error-msg';
+          let html = '<strong>Please fix the following:</strong><ul>';
+          data.errors.forEach(e => { html += `<li>${e}</li>`; });
+          html += '</ul>';
+          msgDiv.innerHTML = html;
+        }
+      } catch (err) {
+        msgDiv.className = 'message error-msg';
+        msgDiv.innerHTML = '❌ Something went wrong. Please try again.';
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '🎧 Create Mashup';
+    }
+  </script>
+</body>
+</html>
