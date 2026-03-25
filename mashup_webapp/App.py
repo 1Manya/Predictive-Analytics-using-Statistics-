@@ -158,7 +158,40 @@ def submit():
         "status": "success",
         "message": f"Your mashup for '{singer}' is being created! You'll receive an email at {email} shortly."
     })
+@app.route("/test")
+def test():
+    import traceback
+    results = {}
+    
+    # Test 1: ffmpeg
+    try:
+        import subprocess
+        r = subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True)
+        results["ffmpeg"] = "OK - " + r.stdout.split('\n')[0]
+    except Exception as e:
+        results["ffmpeg"] = f"FAILED - {str(e)}"
+    
+    # Test 2: yt-dlp
+    try:
+        import yt_dlp
+        results["yt_dlp"] = "OK"
+    except Exception as e:
+        results["yt_dlp"] = f"FAILED - {str(e)}"
 
+    # Test 3: email
+    try:
+        import smtplib
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(SENDER_EMAIL, SENDER_PASSWORD)
+        results["email"] = "OK - Login successful"
+    except Exception as e:
+        results["email"] = f"FAILED - {str(e)}"
+
+    # Test 4: env variables
+    results["SENDER_EMAIL"] = SENDER_EMAIL if SENDER_EMAIL else "NOT SET"
+    results["SENDER_PASSWORD"] = "SET" if SENDER_PASSWORD else "NOT SET"
+
+    return jsonify(results)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
