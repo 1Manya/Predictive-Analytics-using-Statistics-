@@ -45,7 +45,7 @@ It has 178 samples and 13 features with 3 classes.
 
 ![Cluster Scatter Plots](scatter_kmeans_hierarchical.png)
 ![Mean Shift Clusters](scatter_meanshift.png)
-Clustering_assignment/graphs/metric_comparison.png
+![metric comparison](https://github.com/1Manya/Predictive-Analytics-using-Statistics-/blob/main/Clustering_assignment/graphs/metric_comparison.png)
 
 ## Conclusion
 From the results, K-Means with Standardization gave the best performance 
