@@ -35,10 +35,9 @@ It has 178 samples and 13 features with 3 classes.
 | Davies-Bouldin | | | | | | |
 
 ## Graphs
-![clusters](scatter_kmeans_hierarchical.png)
-![meanshift](scatter_meanshift.png)
-![metrics](metric_comparison.png)
-![dendrogram](dendrogram.png)
+![clusters](Clustering_assignment/graphs/scatter_kmeans_hierarchical.png)
+![meanshift](Clustering_assignment/graphs/scatter_meanshift.png)
+![metrics](Clustering_assignment/graphs/metric_comparison.png)
 
 ## Conclusion
 From the results, K-Means with Standardization gave the best performance 
