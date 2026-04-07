@@ -9,7 +9,6 @@ It has 178 samples and 13 features with 3 classes.
 - Used 6 preprocessing techniques: No Processing, Normalization, Standardization, PCA, T+N, T+N+PCA
 - Tested with c=3, c=4, c=5 clusters
 - Evaluated using Silhouette Score, Calinski-Harabasz Index, Davies-Bouldin Index
-
 ## Results
 
 ### K-Means Clustering
@@ -26,9 +25,9 @@ It has 178 samples and 13 features with 3 classes.
 | Parameters | No Processing | | | Normalization | | | Transform | | | PCA | | | T+N | | | T+N+PCA | | |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | | c=3 | c=4 | c=5 | c=3 | c=4 | c=5 | c=3 | c=4 | c=5 | c=3 | c=4 | c=5 | c=3 | c=4 | c=5 | c=3 | c=4 | c=5 |
-| Silhouette | | | | | | | | | | | | | | | | | | |
-| Calinski-Harabasz | | | | | | | | | | | | | | | | | | |
-| Davies-Bouldin | | | | | | | | | | | | | | | | | | |
+| Silhouette | 0.56 | 0.56 | 0.51 | 0.29 | 0.25 | 0.20 | 0.28 | 0.23 | 0.19 | 0.57 | 0.56 | 0.50 | 0.29 | 0.25 | 0.20 | 0.54 | 0.48 | 0.45 |
+| Calinski-Harabasz | 553 | 671 | 684 | 81 | 64 | 52 | 68 | 51 | 44 | 554 | 672 | 685 | 81 | 64 | 52 | 339 | 337 | 337 |
+| Davies-Bouldin | 0.54 | 0.55 | 0.55 | 1.32 | 1.75 | 1.94 | 1.42 | 1.79 | 1.92 | 0.53 | 0.55 | 0.56 | 1.32 | 1.75 | 1.94 | 0.61 | 0.74 | 0.76 |
 
 ### Mean Shift Clustering
 
