@@ -43,8 +43,12 @@ It has 178 samples and 13 features with 3 classes.
 
 ## Graphs
 
-![Cluster Scatter Plots](scatter_kmeans_hierarchical.png)
-![Mean Shift Clusters](scatter_meanshift.png)
+![Cluster Scatter Plots](https://github.com/1Manya/Predictive-Analytics-using-Statistics-/blob/main/Clustering_assignment/graphs/scatter_kmeans_hierarchical.png)
+
+==================================================================================================
+![Mean Shift Clusters](https://github.com/1Manya/Predictive-Analytics-using-Statistics-/blob/main/Clustering_assignment/graphs/scatter_meanshift.png)
+
+===================================================================================================
 ![metric comparison](https://github.com/1Manya/Predictive-Analytics-using-Statistics-/blob/main/Clustering_assignment/graphs/metric_comparison.png)
 
 ## Conclusion
