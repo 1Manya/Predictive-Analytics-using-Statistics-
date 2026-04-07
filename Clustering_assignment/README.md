@@ -37,7 +37,7 @@ It has 178 samples and 13 features with 3 classes.
 ## Graphs
 ![clusters]('Clustering_assignment/graphs/scatter_kmeans_hierarchical.png')
 ![meanshift]('Clustering_assignment/graphs/scatter_meanshift.png')
-![metrics]('Clustering_assignment/graphs/metric_comparison.png')
+![metrics]("Clustering_assignment/graphs/metric_comparison.png")
 
 ## Conclusion
 From the results, K-Means with Standardization gave the best performance 
