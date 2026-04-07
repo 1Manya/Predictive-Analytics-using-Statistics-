@@ -1,0 +1,55 @@
+Algorithm,Preprocessing,k,Silhouette,CH,DB
+K-Means,No Processing,3,0.57,562,0.53
+K-Means,No Processing,4,0.56,708,0.54
+K-Means,No Processing,5,0.55,787,0.55
+K-Means,Normalization,3,0.3,83,1.31
+K-Means,Normalization,4,0.26,66,1.72
+K-Means,Normalization,5,0.2,54,1.82
+K-Means,Transform,3,0.28,71,1.39
+K-Means,Transform,4,0.26,56,1.8
+K-Means,Transform,5,0.2,47,1.81
+K-Means,PCA,3,0.57,563,0.53
+K-Means,PCA,4,0.56,710,0.54
+K-Means,PCA,5,0.55,790,0.54
+K-Means,T+N,3,0.3,83,1.31
+K-Means,T+N,4,0.26,66,1.72
+K-Means,T+N,5,0.2,54,1.82
+K-Means,T+N+PCA,3,0.57,376,0.58
+K-Means,T+N+PCA,4,0.49,353,0.73
+K-Means,T+N+PCA,5,0.45,347,0.76
+Hierarchical,No Processing,3,0.56,553,0.54
+Hierarchical,No Processing,4,0.56,671,0.55
+Hierarchical,No Processing,5,0.51,684,0.55
+Hierarchical,Normalization,3,0.29,81,1.32
+Hierarchical,Normalization,4,0.25,64,1.75
+Hierarchical,Normalization,5,0.2,52,1.94
+Hierarchical,Transform,3,0.28,68,1.42
+Hierarchical,Transform,4,0.23,51,1.79
+Hierarchical,Transform,5,0.19,44,1.92
+Hierarchical,PCA,3,0.57,554,0.53
+Hierarchical,PCA,4,0.56,672,0.55
+Hierarchical,PCA,5,0.5,685,0.56
+Hierarchical,T+N,3,0.29,81,1.32
+Hierarchical,T+N,4,0.25,64,1.75
+Hierarchical,T+N,5,0.2,52,1.94
+Hierarchical,T+N+PCA,3,0.54,339,0.61
+Hierarchical,T+N+PCA,4,0.48,337,0.74
+Hierarchical,T+N+PCA,5,0.45,337,0.76
+Mean Shift,No Processing,3,NA,NA,NA
+Mean Shift,No Processing,4,NA,NA,NA
+Mean Shift,No Processing,5,0.55,287,0.45
+Mean Shift,Normalization,3,NA,NA,NA
+Mean Shift,Normalization,4,NA,NA,NA
+Mean Shift,Normalization,5,0.22,25,1.13
+Mean Shift,Transform,3,NA,NA,NA
+Mean Shift,Transform,4,NA,NA,NA
+Mean Shift,Transform,5,NA,NA,NA
+Mean Shift,PCA,3,NA,NA,NA
+Mean Shift,PCA,4,NA,NA,NA
+Mean Shift,PCA,5,0.55,287,0.45
+Mean Shift,T+N,3,NA,NA,NA
+Mean Shift,T+N,4,NA,NA,NA
+Mean Shift,T+N,5,0.22,25,1.13
+Mean Shift,T+N+PCA,3,0.57,375,0.59
+Mean Shift,T+N+PCA,4,NA,NA,NA
+Mean Shift,T+N+PCA,5,NA,NA,NA
